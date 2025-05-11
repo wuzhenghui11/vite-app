@@ -83,8 +83,8 @@ vite-plugin-checker
 
 服务端 -> 压缩
 客户端接受 -> 解压缩
-压缩js压缩后 放到后端 给到后端发现是 .gz 后 后端就别压缩直接用 直接读gzip文件 会设置相应头设置 content-encoding -> gzip 告诉浏览器 会赶紧解压 会得到原本js
-解压也会占用一定的时间
+压缩js压缩后(插件 viet-plugin-compression) 放到后端 给到后端发现是 .gz 后 后端就别压缩直接用 直接读gzip文件 会设置相应头设置 content-encoding -> gzip 告诉浏览器 会赶紧解压 会得到原本js
+解压也会占用一定的时间(由浏览器承担 如果体积较小就别压缩了吧)
 
 ## 动态导入
 
