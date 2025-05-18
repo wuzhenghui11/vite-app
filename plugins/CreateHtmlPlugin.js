@@ -1,4 +1,4 @@
-export default () => {
+export default (options) => {
   return {
     /**
      * [transformIndexHtml description]
@@ -11,9 +11,7 @@ export default () => {
     // 插件的生命周期
     transformIndexHtml (html, ctx) {
       console.log(ctx)
-      return {
-
-      }
+      return html.replace(/<%= title %>/g, options.inject.data.title)
     }
   }
 }

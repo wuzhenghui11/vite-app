@@ -1,8 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 /**
- * 插件必须返回一个对象 使用默认导出方法方便重命名和扩展
- *
+ * 区分文件和目录
  * @return  {ojbect}  返回一个对象
  */
 
@@ -43,7 +42,7 @@ function getTotalSrcDirs (keyName = '@') {
 
   return resloveAliasObj
 }
-
+// 插件必须返回一个对象 使用默认导出方法方便重命名和扩展
 export default ({ keyName = '@' }) => {
   return {
     /**
@@ -52,7 +51,7 @@ export default ({ keyName = '@' }) => {
      * @param   {Object}  config  当前的配置对象
      * @param   {Object}  env     当前环境变量
      *
-     * @return  {Object}          会和当前的配置对象进行 merge 合并
+     * @return  {Object}          会和当前的配置对象（vite.config.js）进行 merge 合并
      */
     // 插件的生命周期
     config (config, env) {

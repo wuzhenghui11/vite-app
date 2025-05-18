@@ -9,17 +9,24 @@ export default () => ({
    * @return  {Object}          会和当前的配置对象进行 merge 合并
    */
   // 插件的生命周期
-  config (config, env) {
-    // console.log(config, env)
-    // 可以一步步的交给下一步中间间
-    return {
-    }
-  },
-  configurePreviewServer(server) {
+  // config (config, env) {
+  //   // console.log(config, env)
+  //   // 可以一步步的交给下一步中间间
+  //   return {
+  //   }
+  // },
+  configureServer(server) {
     // 返回一个钩子，会在其他中间件安装完成后调用
     return () => {
       server.middlewares.use((req, res, next) => {
         // 自定义处理请求 ...
+        console.log('req', req.url)
+        if (req.url === '/api/getData') {
+          console.log('到这里了')
+          res.end('end')
+        } else {
+          next()
+        }
       })
     }
   },

@@ -12,7 +12,7 @@ module.exports = [
   {
     method: 'post',
     // 请求本地 会涉及跨域
-    api: 'aip/get',
+    api: 'aip/getData',
     response: ({ body }) => {
       return {
         status: 200,
